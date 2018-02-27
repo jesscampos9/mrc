@@ -57,9 +57,7 @@ ld %>%
 
 ``` {r, model}
 my_mod <- lm(lang ~logPop + logArea, data = ld)
-summary(my_mod)$coef %>%(., output )
-
-my_mod %>% broom::tidy(.)
+summary(my_mod)
 ```
 
 
