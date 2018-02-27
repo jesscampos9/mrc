@@ -76,15 +76,46 @@ ld %&gt;%
 
 ```r
 my_mod &lt;- lm(lang ~logPop + logArea, data = ld)
-summary(my_mod)$coef
+summary(my_mod)
 ```
 
 ```
-##                Estimate Std. Error    t value   Pr(&gt;|t|)
-## (Intercept) -285.161478  173.68792 -1.6418037 0.10984982
-## logPop        36.563527   12.80610  2.8551654 0.00727991
-## logArea        1.421904   14.02356  0.1013939 0.91983336
+## 
+## Call:
+## lm(formula = lang ~ logPop + logArea, data = ld)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -122.37  -47.01  -13.30   21.72  267.48 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept) -285.161    173.688  -1.642  0.10985   
+## logPop        36.564     12.806   2.855  0.00728 **
+## logArea        1.422     14.024   0.101  0.91983   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 75.71 on 34 degrees of freedom
+## Multiple R-squared:  0.2296,	Adjusted R-squared:  0.1843 
+## F-statistic: 5.066 on 2 and 34 DF,  p-value: 0.01187
 ```
+
+
+---
+
+
+```r
+library(plot3D)
+
+x &lt;- ld$logArea
+y &lt;- ld$logPop
+z &lt;- ld$lang
+
+scatter3D(x,y,z)
+```
+
+![](index_files/figure-html/3dplot-1.png)&lt;!-- --&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
